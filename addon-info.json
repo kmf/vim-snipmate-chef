@@ -1,0 +1,11 @@
+{
+  "name" : "vim-snipmate-chef",
+  "version" : "dev",
+  "author" : "Karl Fischer",
+  "maintainer" : "Karl Fischer",
+  "repository" : {"type": "git", "url": "git://github.com/kmf/vim-snipmate-chef.git"},
+  "dependencies" : {
+    "vim-snipmate": {}
+  },
+  "description" : "vim snipmate for chef"
+}
