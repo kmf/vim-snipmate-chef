@@ -172,19 +172,14 @@ snippet notifies
 snippet subscribes
 	subscribes :${1:restart}, '${2:template}[${3:name}]'
 
-snippet pak
+snippet package
 	package '${1:name}' do
 		action :${2:install}
 		version '${3:1.0-1}'
 	end
 
-snippet pac
-	package '${1:name}' do
-		action :${2:install}
-		version '${3:1.0-1}'
-	end
 
-snippet yumr
+snippet yum_repository
 	yum_repository '${1:name}' do
 	    description '${2:Description for the repository}'
 	    baseurl     '${3:http://dev.zenoss.com/yum/stable/}'
@@ -311,12 +306,12 @@ snippet sudo
 	  groups '${3:sysadmins, superusers}'
 	end
 
-snippet aptp
+snippet apt_package
 	apt_package 'apache2' do
 	  action :install
 	end
 
-snippet aptr
+snippet apt_repository
 	apt_repository '${1:cloudera}' do
 	  uri          '${2:http://archive.cloudera.com/cdh4/ubuntu/precise/amd64/cdh/}'
 	  arch         '${3:amd64}'
@@ -326,7 +321,7 @@ snippet aptr
 		action :add
 	end
 
-snippet aptu
+snippet apt_update
 	apt_update 'all platforms' do
 	  frequency 86400
 	  action :periodic
@@ -347,20 +342,20 @@ snippet mount
 	  fstype '${3:ext3}'
 	end
 
-snippet remotef
+snippet remote_file
 	remote_file '${1:/tmp/testfile}' do
 	  source 'http://www.example.com/tempfiles/testfile'
 	  mode '0755'
 	  checksum '3a7dac00b1' # A SHA256 (or portion thereof) of the file.
 	end
 
-snippet rhnreg
+snippet rhsm_register
 	rhsm_register '${1:myhost}' do
 	  activation_key '${2:ABCD1234}'
 	  organization '${3:my_org}'
 	end
 
-snippet rhnrepo
+snippet rhsm_repo
 	rhsm_repo '${1:rhel-7-server-extras-rpms}'
 	  action :enable
 	end
@@ -388,7 +383,7 @@ snippet timezone
  	 timezone 'UTC'
 	end
 
-snippet yump
+snippet yum_package
 	yum_package '${1:tzdata}' do
 	  version '${2:2011b-1.el5}'
 	  ${3:allow_downgrade true}
@@ -400,7 +395,7 @@ snippet sysctl
 	  action :apply
 	end
 
-snippet zyppr
+snippet zypper_repository
 	zypper_repository '${1:apache}' do
 		baseurl ${2:'http://download.opensuse.org/repositories/Apache'}
 		path '/openSUSE_Leap_42.2'
@@ -408,7 +403,7 @@ snippet zyppr
 		priority '100'
 	end
 
-snippet zyppp
+snippet zypper_package
 	zypper_package 'apache' do
 		source '/path/to/jwhois.rpm'
 		action :install
